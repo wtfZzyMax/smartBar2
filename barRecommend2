@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+public class barRecommend {
+    Scanner input = new Scanner(System.in);
+    public String name;
+    public int phoneNumber;
+    public int number;
+    //declare
+
+    public barRecommend(){
+        this.name = "Zhangziy";
+        this.phoneNumber = 12345678;
+        this.number = 2;
+    }
+    //Assign initial value
+    public  barRecommend(String name,int phoneNumber,int number) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.number = number;
+    }
+
+
+        public String getName () {
+            return name;
+        }
+        public void setName (String name){
+            this.name = name;
+        }
+        public int getPhoneNumber () {
+            return phoneNumber;
+        }
+        public void setPhoneNumber ( int phoneNumber){
+            this.phoneNumber = phoneNumber;
+        }
+        public int getNumber () {
+            return number;
+        }
+        public void setNumber ( int number){
+            this.number = number;
+        }
+
+
+    public void recommendFood(){
+
+        System.out.println("Please choose acid or sweet:");
+        String flavorOne = input.nextLine();
+        if(flavorOne.equals("acid")){
+            System.out.println("The food we recommend is Lemon chicken shreds");
+        }
+        else if(flavorOne.equals("sweet")){
+            System.out.println("The food we recommend is Tiramisu");
+        }
+        else{
+            System.out.println("Sorry,the food is unavailable");
+        }
+        System.out.println("Please choose bitter or spicy");
+        String flavorTwo = input.nextLine();
+        if(flavorTwo.equals("bitter")){
+            System.out.println("The food we recommend is Bitter Melon in Sause");
+        }
+        else if(flavorTwo.equals("spicy")){
+            System.out.println("The food we recommend is Spicy chicken cutlet");
+        }
+        else{
+            System.out.println("Sorry,The food is unavailable");
+        }
+    }
+    public void recommendWine(){
+        System.out.println("Let us recommend some wine to you.");
+        System.out.println("Please choose sweet,dry or semi dry:");
+        String flavorThree = input.nextLine();
+        System.out.println("Please enter your budget(maybe 100 need to be an int):");
+        int budget = input.nextInt();
+        input.nextLine();
+        String[] sweetWines = {"Port","Baileys Irish Cream"};
+        String[] dryWines = {"LaLaMa","Domaine"};
+        String[] semiWines={"Pinot Noir","MERLOT"};
+        String recommendation = null;
+        if(flavorThree.equals("sweet")){
+            if(budget<=100){
+                recommendation =sweetWines[0];
+            }
+            else{
+                recommendation = sweetWines[1];
+            }
+        }else if(flavorThree.equals("dry")){
+            if(budget<=100){
+                recommendation = dryWines[0];
+            }
+            else{
+                recommendation = dryWines[1];
+            }
+        }else if(flavorThree.equals("semi dry")){
+            if(budget<=100){
+                recommendation = semiWines[0];
+            }
+            else{
+                recommendation = semiWines[1];
+            }
+        }
+        System.out.println("Our recommendation is "+recommendation);
+    }
+
+    }
