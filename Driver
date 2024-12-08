@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class Driver {
+    Scanner input = new Scanner(System.in);
+    barRecommend ZZY;
+
+    public static void main(String[] args) {
+        Driver driver = new Driver();
+        System.out.println("Welcome to our bar");
+        barRecommend barOne = new barRecommend();
+        driver.addInformation();
+
+        barOne.recommendFood();
+        barOne.recommendWine();
+
+    }
+    public void addInformation(){
+        System.out.println("Please enter your name:");
+        String nameOne = input.nextLine();
+        System.out.println("Please enter your number of dinners:");
+        int numberOne = input.nextInt();
+        System.out.println("Please enter your phone number:");
+        int phoneOne = input.nextInt();
+        ZZY = new barRecommend(nameOne,numberOne,phoneOne);
+        toString(){
+
+        }
+    }
+
+
+}
