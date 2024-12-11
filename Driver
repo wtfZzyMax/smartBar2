@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Driver {
     Scanner input = new Scanner(System.in);
     barRecommend ZZY;
@@ -6,26 +7,44 @@ public class Driver {
     public static void main(String[] args) {
         Driver driver = new Driver();
         System.out.println("Welcome to our bar");
-        barRecommend barOne = new barRecommend();
         driver.addInformation();
+        System.out.println(driver.ZZY.toString());
+        driver.ZZY.addInformation();
+        driver.ZZY.recommendFood();
+        driver.ZZY.recommendWine();
 
-        barOne.recommendFood();
-        barOne.recommendWine();
-
+        System.out.println("\nWould you like to update your information? (yes/no)");
+        String update = driver.input.nextLine();
+        if ("yes".equalsIgnoreCase(update)) {
+            driver.updateInformation();
+            System.out.println("Updated Information:\n" + driver.ZZY.toString());
+        }
     }
-    public String addInformation() {
+
+    public void addInformation() {
         System.out.println("Please enter your name:");
         String nameOne = input.nextLine();
+        System.out.println("Please enter your phone number:");
+        input.nextLine(); // Consume the leftover newline from the previous input
+        String phoneOne = input.nextLine();
         System.out.println("Please enter your number of dinners:");
         int numberOne = input.nextInt();
-        System.out.println("Please enter your phone number:");
-        input.nextLine(); // 这行是为了消耗nextInt后的换行符
-        int phoneOne = input.nextInt();
-        ZZY = new barRecommend(nameOne, numberOne, phoneOne);
-        return "Your name is: " + nameOne +
-                "Your number of dinners is: " + numberOne +
-                "Your phone number is: " + phoneOne;
+        input.nextLine(); // Consume the newline after the integer input
+
+        ZZY = new barRecommend(nameOne, Integer.parseInt(phoneOne), numberOne);
     }
 
+    public void updateInformation() {
+        System.out.println("Please enter your new name:");
+        String newName = input.nextLine();
+        System.out.println("Please enter your new phone number:");
+        String newPhoneNumber = input.nextLine();
+        System.out.println("Please enter your new number of dinners:");
+        int newNumber = input.nextInt();
+        input.nextLine(); // Consume the newline after the integer input
 
+        ZZY.setName(newName);
+        ZZY.setPhoneNumber(Integer.parseInt(newPhoneNumber));
+        ZZY.setNumber(newNumber);
+    }
 }
