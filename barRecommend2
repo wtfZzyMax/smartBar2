@@ -20,24 +20,24 @@ public class barRecommend {
     }
 
 
-        public String getName () {
-            return name;
-        }
-        public void setName (String name){
-            this.name = name;
-        }
-        public int getPhoneNumber () {
-            return phoneNumber;
-        }
-        public void setPhoneNumber ( int phoneNumber){
-            this.phoneNumber = phoneNumber;
-        }
-        public int getNumber () {
-            return number;
-        }
-        public void setNumber ( int number){
-            this.number = number;
-        }
+    public String getName () {
+        return name;
+    }
+    public void setName (String name){
+        this.name = name;
+    }
+    public int getPhoneNumber () {
+        return phoneNumber;
+    }
+    public void setPhoneNumber ( int phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+    public int getNumber () {
+        return number;
+    }
+    public void setNumber ( int number){
+        this.number = number;
+    }
 
 
     public void recommendFood(){
@@ -100,5 +100,17 @@ public class barRecommend {
         }
         System.out.println("Our recommendation is "+recommendation);
     }
-
+    public String addInformation() {
+        System.out.println("Please enter your name:");
+        String nameOne = input.nextLine();
+        System.out.println("Please enter your number of dinners:");
+        int numberOne = input.nextInt();
+        input.nextLine(); // 消耗nextInt后的换行符
+        System.out.println("Please enter your phone number:");
+        String phoneNumber = input.nextLine();
+        return "Name: " + nameOne + ", Number of Dinners: " + numberOne + ", Phone Number: " + phoneNumber;
     }
+
+
+
+}
