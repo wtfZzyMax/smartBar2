@@ -13,17 +13,18 @@ public class Driver {
         barOne.recommendWine();
 
     }
-    public void addInformation(){
+    public String addInformation() {
         System.out.println("Please enter your name:");
         String nameOne = input.nextLine();
         System.out.println("Please enter your number of dinners:");
         int numberOne = input.nextInt();
         System.out.println("Please enter your phone number:");
+        input.nextLine(); // 这行是为了消耗nextInt后的换行符
         int phoneOne = input.nextInt();
-        ZZY = new barRecommend(nameOne,numberOne,phoneOne);
-        toString(){
-
-        }
+        ZZY = new barRecommend(nameOne, numberOne, phoneOne);
+        return "Your name is: " + nameOne +
+                "Your number of dinners is: " + numberOne +
+                "Your phone number is: " + phoneOne;
     }
 
 
