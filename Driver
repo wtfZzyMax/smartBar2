@@ -9,7 +9,7 @@ public class Driver {
         System.out.println("Please enter your name:");
         String name = input.nextLine();
         System.out.println("Please enter your phone number:");
-        String phoneNumber = input.nextLine();
+        String phoneNumber = input.nextLine();//enter your phone number in Ireland
         System.out.println("Please enter the number of dinners you have had:");
         int number = input.nextInt();
         input.nextLine(); // Consume the newline left over from nextInt
