@@ -64,7 +64,7 @@ public class barRecommend {
         else{
             System.out.println("Sorry,The food is unavailable");
         }
-    }
+    }//This is a program which can recommend you suitable food
     public void recommendWine(){
         System.out.println("Let us recommend some wine to you.");
         System.out.println("Please choose sweet,dry or semi dry:");
@@ -99,7 +99,7 @@ public class barRecommend {
             }
         }
         System.out.println("Our recommendation is "+recommendation);
-    }
+    }//This is a program which can recommend you suitable wine
 
 
 
