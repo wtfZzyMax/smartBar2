@@ -1,50 +1,38 @@
 import java.util.Scanner;
 
 public class Driver {
-    Scanner input = new Scanner(System.in);
-    barRecommend ZZY;
-
     public static void main(String[] args) {
-        Driver driver = new Driver();
-        System.out.println("Welcome to our bar");
-        driver.addInformation();
-        System.out.println(driver.ZZY.toString());
-        driver.ZZY.addInformation();
-        driver.ZZY.recommendFood();
-        driver.ZZY.recommendWine();
+        Scanner input = new Scanner(System.in);
+        barRecommend user = new barRecommend();
 
-        System.out.println("\nWould you like to update your information? (yes/no)");
-        String update = driver.input.nextLine();
-        if ("yes".equalsIgnoreCase(update)) {
-            driver.updateInformation();
-            System.out.println("Updated Information:\n" + driver.ZZY.toString());
-        }
-    }
-
-    public void addInformation() {
+        System.out.println("Welcome to our bar recommendation system!");
         System.out.println("Please enter your name:");
-        String nameOne = input.nextLine();
+        String name = input.nextLine();
         System.out.println("Please enter your phone number:");
-        input.nextLine(); // Consume the leftover newline from the previous input
-        String phoneOne = input.nextLine();
-        System.out.println("Please enter your number of dinners:");
-        int numberOne = input.nextInt();
-        input.nextLine(); // Consume the newline after the integer input
+        String phoneNumber = input.nextLine();
+        System.out.println("Please enter the number of dinners you have had:");
+        int number = input.nextInt();
+        input.nextLine(); // Consume the newline left over from nextInt
 
-        ZZY = new barRecommend(nameOne, Integer.parseInt(phoneOne), numberOne);
-    }
+        // Set the user's information
+        user.setName(name);
+        user.setPhoneNumber(Integer.parseInt(phoneNumber));
+        user.setNumber(number);
 
-    public void updateInformation() {
-        System.out.println("Please enter your new name:");
-        String newName = input.nextLine();
-        System.out.println("Please enter your new phone number:");
-        String newPhoneNumber = input.nextLine();
-        System.out.println("Please enter your new number of dinners:");
-        int newNumber = input.nextInt();
-        input.nextLine(); // Consume the newline after the integer input
+        // Display the user's information
+        System.out.println("\nUser Information:");
+        System.out.println("Name: " + user.getName());
+        System.out.println("Phone Number: " + user.getPhoneNumber());
+        System.out.println("Number of Dinners: " + user.getNumber());
 
-        ZZY.setName(newName);
-        ZZY.setPhoneNumber(Integer.parseInt(newPhoneNumber));
-        ZZY.setNumber(newNumber);
+        // Recommend food based on user's preference
+        System.out.println("\nLet's recommend some food for you.");
+        user.recommendFood();
+
+        // Recommend wine based on user's preference and budget
+        System.out.println("\nNow, let's recommend some wine for you.");
+        user.recommendWine();
+
+        input.close();
     }
 }
